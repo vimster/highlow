@@ -1,0 +1,197 @@
+@grainUrl: "../img/grain.png";
+
+.backgroundGradient(@color) {
+  background-image: url(@grainUrl), -moz-linear-gradient(top, @color 0%, @light 100%); /* FF3.6+ */
+  background-image: url(@grainUrl), -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color), color-stop(100%,@light)); /* Chrome,Safari4+ */
+  background-image: url(@grainUrl), -webkit-linear-gradient(top,  @color 0%,@light 100%); /* Chrome10+,Safari5.1+ */
+  background-image: url(@grainUrl), -o-linear-gradient(top,  @color 0%,@light 100%); /* Opera 11.10+ */
+  background-image: url(@grainUrl), -ms-linear-gradient(top,  @color 0%,@light 100%); /* IE10+ */
+  background-image: url(@grainUrl), linear-gradient(to bottom,  @color 0%,@light 100%); /* W3C */
+}
+
+
+/* ---------------------------------------------------------------------
+ Colors
+----------------------------------------------------------------------*/
+
+.contentBox {
+  background-color: @normal;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  color: #fff;
+  position: relative;
+  border-radius: 5px 5px 5px 5px;
+}
+
+
+
+.dashboardBox {
+  .label, .badge {
+    color: @footerText;
+    background-color: @dark;
+  }
+}
+
+body:before {
+  .backgroundGradient(@dark);
+  background-position: center top;
+  position: fixed;
+  width: 100%;
+  height: 300px;
+  z-index: -10;
+  content: "";
+}
+
+body {
+  background-color: @light;
+  color: @textColor;
+}
+
+#content, #smallContent, .feature div, .dashboardBox, .box, .detailView {
+    .contentBox;
+    color: @textColor;
+}
+
+
+footer {
+    background-color: @dark;
+    color: @footerText;
+  a, a:hover {
+    color: @footerText;
+  }
+}
+
+header {
+  .home {
+    color: @footerText !important;
+  }
+
+  .home:hover {
+    color: @footerText !important;
+    text-decoration: none !important;
+  }
+  .nav a.active, .nav a:hover {
+    color: @dark;
+    background: @footerText;
+  }
+
+  .nav a, a, a:hover {
+    color: @footerText;
+  }
+}
+
+code, pre, .dynamicTextField, legend {
+  color: @textColor !important;
+}
+
+/* ---------------------------------------------------------------------
+ Popover
+----------------------------------------------------------------------*/
+.popover {
+  background-color: @normalOpaque !important;
+  color: @textColor !important;
+  .popover-title {
+    background-color: @normalOpaque !important;
+    color: @textColor !important;
+    font-weight: bold;
+  }
+}
+
+.modal {
+  background-color: @normalOpaque;
+  .table {
+    input {
+      color: @textColor;
+    }
+  }
+  .close {
+    color: white;
+  }
+}
+
+.modal-footer {
+  background-color: @dark;
+}
+
+.dropdown-menu {
+  background-color: @dark;
+  color: @footerText !important;
+  a {
+    color: inherit;
+  }
+}
+
+
+
+
+
+
+/* ---------------------------------------------------------------------
+ Tree
+----------------------------------------------------------------------*/
+
+.loading-screen {
+  color: @footerText;
+}
+
+.blackInput {
+  background-color: rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.15);
+  color: @textColor;
+}
+
+.ui-draggable-helper {
+  background-color: @dark;
+}
+
+.filterView {
+  input {
+    color: @textColor;
+  }
+}
+.actionBar {
+  //background-color: rgba(0, 0, 0, 0.1);
+  color: @textColor;
+}
+
+.round {
+  color: @footerText;
+}
+
+.roundItem table input {
+  color: @textColor;
+}
+
+.roundItem input, .roundItem {
+  color: @footerText;
+}
+
+.roundItem .blurringBox {
+  thead {
+    color: @textColor;
+  }
+}
+
+.roundItem table input.xxs {
+  .blackInput;
+}
+
+.roundSetting .close {
+  color: @textColor;
+}
+
+/**
+.detailView input, .detailView select {
+  .blackInput;
+}
+**/
+
+.btn-link {
+  color: @textColor;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: none;
+}
+.btn-link:hover {
+  color: @textColor;
+  text-decoration: none;
+}

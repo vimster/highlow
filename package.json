@@ -1,0 +1,15 @@
+{
+    "name": "highlow"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "3.x"
+    , "consolidate": "0.5.0"
+    , "eco": "1.1.0-rc-3"
+  }
+  ,  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-coffee": "~0.4.0",
+    "grunt-contrib-watch": "~0.4.0"
+  }
+}
