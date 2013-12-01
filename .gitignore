@@ -1,3 +1,8 @@
+app/server-config.coffee
+start_server.bat
+node_modules
+*.lnk
+
 #################
 ## Eclipse
 #################
