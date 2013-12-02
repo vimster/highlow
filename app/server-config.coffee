@@ -1,5 +1,5 @@
 exports.CLIENT_DIR = __dirname + '/../public'
-exports.DB_PATH = '/app/db/'
+exports.DB_PATH = '../app/db/'
 
 exports.SERVER_PORT = 3000
 

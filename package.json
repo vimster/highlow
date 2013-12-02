@@ -11,6 +11,7 @@
     "grunt": "~0.4.2",
     "grunt-contrib-coffee": "~0.4.0",
     "grunt-contrib-watch": "~0.4.0",
-    "grunt-closure-tools": "0.8.4"
+    "grunt-closure-tools": "0.8.4",
+    "grunt-express": "~1.0.0"
   }
 }

@@ -4,9 +4,8 @@ config = require '../server-config'
 module.exports =
 
   readOrCreateFile: (filename) ->
-    file = fs.readFileSync config.DB_PATH + filename, 'utf8'
-    if not file
-      file = fs.writeFileSync config.DB_PATH + filename, '', 'utf8'
+    try file = fs.readFileSync config.DB_PATH + filename, 'utf8'
+    catch e then file = fs.openSync config.DB_PATH + filename, 'w'
     file
 
   getPortfolio: ->
