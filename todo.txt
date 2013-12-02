@@ -1,0 +1,14 @@
+ML + algorithmic trading
+
+links:
+http://quant.stackexchange.com/questions/111/how-can-i-go-about-applying-machine-learning-algorithms-to-stock-markets
+http://www.amazon.de/Statistically-Learning-Algorithmic-Financial-Instruments/dp/148950771X
+http://www.amazon.de/Statistically-Learning-Algorithmic-Financial-Instruments/dp/148950771X
+
+
+get all stocks:
+* bruteforce
+
+machine learning:
+* crawl newspaper
+* tops/flops from stock portals
