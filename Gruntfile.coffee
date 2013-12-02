@@ -12,6 +12,7 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-closure-tools')
 
   grunt.registerTask('default', ['coffee', 'watch'])
 

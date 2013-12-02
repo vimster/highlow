@@ -1,7 +1,9 @@
 (function() {
-  var DAXES, getStockInfo, handleResult, s, signalBuy, _fn, _i, _len;
+  var DAXES, findStocksOfInterest, getStockInfo, handleResult, highLow, signalBuy;
 
   DAXES = ["ADS.DE", "ALV.DE", "BAS.DE", "BAYN.DE", "BEI.DE", "BMW.DE", "CBK.DE", "CON.DE", "DAI.DE", "DB1.DE", "DBK.DE", "DPW.DE", "DTE.DE", "EOAN.DE", "FME.DE", "FRE.DE", "HEI.DE", "HEN3.DE", "IFX.DE", "LHA.DE", "LIN.DE", "LXS.DE", "MRK.DE", "MUV2.DE", "RWE.DE", "SAP.DE", "SDF.DE", "SIE.DE", "TKA.DE", "VOW3.DE"];
+
+  highLow = angular.module("highLow", []);
 
   getStockInfo = function(symbol, callback) {
     var data, start, stop, url;
@@ -38,14 +40,18 @@
     }
   };
 
-  _fn = function(s) {
-    return getStockInfo(s, function(result) {
-      return handleResult(s, result);
-    });
+  findStocksOfInterest = function() {
+    var s, _i, _len, _results;
+    _results = [];
+    for (_i = 0, _len = DAXES.length; _i < _len; _i++) {
+      s = DAXES[_i];
+      _results.push((function(s) {
+        return getStockInfo(s, function(result) {
+          return handleResult(s, result);
+        });
+      })(s));
+    }
+    return _results;
   };
-  for (_i = 0, _len = DAXES.length; _i < _len; _i++) {
-    s = DAXES[_i];
-    _fn(s);
-  }
 
 }).call(this);
