@@ -3,10 +3,10 @@ module.exports = (grunt) ->
   grunt.initConfig
     watch:
       coffee:
-        files: ['assets/js/**/*.coffee']
+        files: ['client/js/**/*.coffee']
         tasks: 'coffeeify'
       less:
-        files: ['assets/less/**/*.less']
+        files: ['client/less/**/*.less']
         tasks: 'less:compile'
 
     nodemon:
@@ -41,11 +41,11 @@ module.exports = (grunt) ->
     less:
       compile:
         options:
-          paths: ["assets/css"]
+          paths: ["client/css"]
         files:
           [{
             expand: true
-            cwd: 'assets/less'
+            cwd: 'client/less'
             src: ['*.less']
             dest: 'server/public/css'
             ext: '.css'
