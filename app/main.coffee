@@ -1,7 +1,7 @@
 DAXES = ["ADS.DE", "ALV.DE", "BAS.DE", "BAYN.DE", "BEI.DE", "BMW.DE", "CBK.DE", "CON.DE", "DAI.DE", "DB1.DE", "DBK.DE", "DPW.DE", "DTE.DE", "EOAN.DE", "FME.DE", "FRE.DE", "HEI.DE", "HEN3.DE", "IFX.DE", "LHA.DE", "LIN.DE", "LXS.DE", "MRK.DE", "MUV2.DE", "RWE.DE", "SAP.DE", "SDF.DE", "SIE.DE", "TKA.DE", "VOW3.DE"]
 
 
-highLow = angular.module "highLow", []
+
 
 getStockInfo = (symbol, callback) ->
   url = 'http://query.yahooapis.com/v1/public/yql';

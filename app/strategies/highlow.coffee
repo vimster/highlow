@@ -1,12 +1,13 @@
 http = require 'http'
-portfolioDao = require '../daos/portfolio-dao'
+moment = require 'moment'
+portfolio = require '../portfolio/portfolio'
 
 module.exports =
-
-  getAllStocks = ->
+  getAllStocks: ->
     http.get host: 'http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json', (res) ->
       console.log res
-  getStockInfo = (symbol, callback) ->
+
+  getStockInfo: (symbol, callback) ->
     url = 'http://query.yahooapis.com/v1/public/yql';
     start = moment().subtract('days', 7).format 'YYYY-MM-DD'
     stop = moment().format "YYYY-MM-DD"

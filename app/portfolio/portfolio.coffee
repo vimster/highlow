@@ -1,5 +1,5 @@
 fs = require 'fs'
-config = require '../server-config'
+config = require '../config'
 
 module.exports =
 
