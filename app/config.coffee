@@ -1,4 +1,4 @@
-exports.DB_PATH = '/app/db/'
+exports.DB_PATH = process.cwd() + '/app/db/'
 
 exports.EMAIL_USER = "admin@example.net"
 exports.EMAIL_PASSWORD = "yourpassword"

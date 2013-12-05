@@ -10,5 +10,6 @@ module.exports =
 
   getPortfolio: ->
     console.log "get Portfolio"
+    return "lksdjf"
     fileContent = @readOrCreateFile 'portfolio.txt'
     fileContent.split '\n'

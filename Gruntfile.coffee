@@ -3,25 +3,57 @@ module.exports = (grunt) ->
   grunt.initConfig
     watch:
       coffee:
-        files: ['public/src-cs/*.coffee']
-        tasks: 'coffee'
-    coffee:
-      compile:
-        files:
-          'public/js/main.js': ['public/src-cs/*.coffee']
-    express:
-      serverreload: true
-      livereload:
+        files: ['assets/js/**/*.coffee']
+        tasks: 'coffeeify'
+      less:
+        files: ['assets/less/**/*.less']
+        tasks: 'less:compile'
+
+    nodemon:
+      server:
         options:
-          server: 'server'
-          livereload: true
-          serverreload: true
-          bases: ['./app']
+          file: 'server'
+          watchedExtensions: ['coffee']
+          watchedFolders: ['server', 'app']
+          debug: true
+          delayTime: 1
 
-  grunt.loadNpmTasks('grunt-contrib-coffee')
-  grunt.loadNpmTasks('grunt-contrib-watch')
-  grunt.loadNpmTasks('grunt-closure-tools')
-  grunt.loadNpmTasks('grunt-express')
+    concurrent:
+      tasks: ['nodemon', 'watch']
+      options:
+        logConcurrentOutput: true
 
-  grunt.registerTask('default', ['coffee', 'watch', 'express'])
+    mochaTest:
+      test:
+        options:
+          reporter: 'spec'
+          timeout: 2*60*1000
+          require: 'coffee-script'
+        src: ['test/**/*.coffee']
+
+    coffeeify:
+      options:
+        debug: true
+      files:
+        src: 'server/js/main.coffee',
+        dest: 'server/public/js/main.js'
+
+    less:
+      compile:
+        options:
+          paths: ["assets/css"]
+        files:
+          [{
+            expand: true
+            cwd: 'assets/less'
+            src: ['*.less']
+            dest: 'server/public/css'
+            ext: '.css'
+          }]
+
+  # load all grunt tasks
+  require('matchdep').filterDev('grunt-*').forEach grunt.loadNpmTasks
+
+  grunt.registerTask 'default', ['coffeeify', 'less:compile', 'concurrent']
+  grunt.registerTask 'test', 'mochaTest'
 

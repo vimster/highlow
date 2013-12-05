@@ -1,4 +1,6 @@
 app/server-config.coffee
+server/public/css
+server/public/js
 start_server.bat
 node_modules
 *.lnk

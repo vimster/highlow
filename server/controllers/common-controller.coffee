@@ -1,4 +1,4 @@
-portfolioService = require '/app/portfolio/portfolio'
+portfolioService = require process.cwd() + '/app/portfolio/portfolio'
 
 module.exports.init = (app) ->
   app.get '/', (req, res) ->
