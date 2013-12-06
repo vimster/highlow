@@ -17,6 +17,8 @@
     "grunt-mocha-test": "0.8.1",
     "grunt-nodemon": "0.1.2",
     "grunt-concurrent" : "*",
+    "grunt-contrib-clean" : "*",
+    "grunt-contrib-copy" : "*",
     "matchdep" : "*",
     "grunt-express": "~1.0.0"
   }

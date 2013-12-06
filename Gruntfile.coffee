@@ -1,6 +1,14 @@
 module.exports = (grunt) ->
 
+  clientDir =  "client/"
+  publicDir = "server/public/"
+
   grunt.initConfig
+
+    buildTempDir: "build/tmp/"
+    modules: "<%= buildTempDir %>src/"
+
+
     watch:
       coffee:
         files: ['client/js/**/*.coffee']
@@ -35,8 +43,21 @@ module.exports = (grunt) ->
       options:
         debug: true
       files:
-        src: 'server/js/main.coffee',
-        dest: 'server/public/js/main.js'
+        src: 'client/js/app.coffee',
+        dest: publicDir + 'js/main.js'
+
+    clean:
+      dist: [
+        publicDir + 'js'
+        publicDir + 'css'
+        publicDir + 'libs'
+      ]
+
+    copy:
+      libs:
+        files: [
+          expand: true, cwd: 'client/libs', src: ['**'], dest: publicDir + 'libs'
+        ]
 
     less:
       compile:
@@ -45,15 +66,16 @@ module.exports = (grunt) ->
         files:
           [{
             expand: true
-            cwd: 'client/less'
+            cwd: clientDir + 'less'
             src: ['*.less']
-            dest: 'server/public/css'
+            dest: publicDir + 'css'
             ext: '.css'
           }]
 
   # load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach grunt.loadNpmTasks
 
-  grunt.registerTask 'default', ['coffeeify', 'less:compile', 'concurrent']
+  grunt.registerTask 'compile', ['clean', 'copy', 'coffeeify', 'less']
+  grunt.registerTask 'default', ['compile', 'concurrent']
   grunt.registerTask 'test', 'mochaTest'
 

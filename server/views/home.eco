@@ -5,12 +5,12 @@
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 
-    <script src="/lib/jquery-2.0.3.min.js"></script>
-    <script src="/lib/angular.min.js"></script>
-    <script src="/lib/moment.min.js"></script>
+    <script src="/libs/jquery-2.0.3.min.js"></script>
+    <script src="/libs/angular.min.js"></script>
+    <script src="/libs/moment.min.js"></script>
     <script src="/js/main.js"></script>
 
   </head>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="container theme-showcase" style="margin-top: 50px">
-      <div class="starter-template">
+      <div ng-controller="HighLowCtrl">
         <h1>HighLow Strategy</h1>
         <fieldset>
           <legend>Filteroptions</legend>
@@ -52,6 +52,22 @@
             </form>
 
         </fieldset>
+
+        <h1>Stocks of Interest</h1>
+        <table class="table table-hover">
+          <thead>
+            <th>Stock</th>
+            <th></th>
+          </thead>
+          <tbody ng:repeat="i in items">
+              <tr>
+                <td>{{i.stock}}</td>
+                <td>{{$index}}</td>
+              </tr>
+          </tbody>
+        </table>
+
+        <h1>Portfolio</h1>
         <table class="table table-hover" id="tableHighLow">
           <thead>
             <th>Stock</th>
@@ -64,6 +80,10 @@
               </tr>
           </tbody>
         </table>
+         <form ng-submit="addStock()">
+            <input type="text" ng-model="stockSymbol" size="30" placeholder="add new stock here">
+            <input class="btn-primary" type="submit" value="add">
+          </form>
       </div>
 
     </div>
